@@ -1,0 +1,13 @@
+{
+    "name": "qowwa/blog",
+    "description": "this package about manage posts and comments in blog",
+    "type": "composer-plugin",
+    "authors": [
+        {
+            "name": "qowwa",
+            "email": "info@qowwa.net"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
