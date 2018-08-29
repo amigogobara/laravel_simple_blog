@@ -4,6 +4,7 @@ namespace Qowwa\Blog\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Qowwa\Blog\Post;
 
 class PostsController extends Controller
 {
@@ -14,7 +15,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+
+        return view('posts.create',compact('posts'));
     }
 
     /**
@@ -24,7 +27,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -35,7 +38,10 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inputs = $request->all();
+        Post::create($inputs);
+
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -46,7 +52,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+
+        return view('posts.show',compact('post'));
     }
 
     /**
@@ -57,7 +65,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+
+        return view('posts.edit',compact('post'));
     }
 
     /**
@@ -69,7 +79,10 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $inputs = $request->all();
+        Post::find($id)->update($inputs);
+
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -80,6 +93,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::find($id)->delete();
+
+        return redirect()->route('posts.index');
     }
 }
