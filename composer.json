@@ -9,5 +9,10 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Qowwa\\Blog\\": "packages/qowwa/blog/src"
+        }
+    }
 }
