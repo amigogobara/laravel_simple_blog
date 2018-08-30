@@ -14,5 +14,12 @@
         "psr-4": {
             "Qowwa\\Blog\\": "packages/qowwa/blog/src"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Qowwa\\Blog\\BlogServiceProvider"
+            ]
+        }
     }
 }
